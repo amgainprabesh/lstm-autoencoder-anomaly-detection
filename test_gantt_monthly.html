@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Times New Roman', serif; padding: 20px; width: 600px; margin: 0 auto; }
+        .mermaid { margin: 20px 0; }
+    </style>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+</head>
+<body>
+<h2>Test A: tickInterval 1month & axisFormat %B</h2>
+<div class="mermaid">
+gantt
+    title BSc CSIT Project Implementation Timeline (May - Sep 2026)
+    dateFormat  YYYY-MM-DD
+    axisFormat  %B
+    tickInterval 1month
+    todayMarker off
+    
+    section Proposal & Literature
+    Problem Formulation & Proposal     :done, 2026-05-01, 2026-05-21
+    Literature Review & NAB Study       :done, 2026-05-22, 2026-06-11
+    
+    section System Analysis & Design
+    Requirement Analysis & UML Modeling :done, 2026-06-12, 2026-06-25
+    Mathematical Pipeline Design        :done, 2026-06-26, 2026-07-09
+    
+    section Implementation & Tests
+    Preprocessing & Leakage Prevention  :done, 2026-07-10, 2026-07-23
+    LSTM Model & Training Loop Dev      :done, 2026-07-24, 2026-08-06
+    Automated Unit Test Suite (35 Tests):done, 2026-08-07, 2026-08-16
+    
+    section Experiments & Report
+    Controlled Empirical Experiments    :done, 2026-08-17, 2026-08-25
+    Streamlit Dashboard Deployment      :done, 2026-08-26, 2026-08-30
+    Final Report Documentation & Viva   :active, 2026-08-31, 2026-09-10
+</div>
+
+<h2>Test B: Month & Year (%b %Y) with 1month</h2>
+<div class="mermaid">
+gantt
+    title BSc CSIT Project Implementation Timeline (May - Sep 2026)
+    dateFormat  YYYY-MM-DD
+    axisFormat  %b %Y
+    tickInterval 1month
+    todayMarker off
+    
+    section Proposal & Literature
+    Problem Formulation & Proposal     :done, 2026-05-01, 2026-05-21
+    Literature Review & NAB Study       :done, 2026-05-22, 2026-06-11
+    
+    section System Analysis & Design
+    Requirement Analysis & UML Modeling :done, 2026-06-12, 2026-06-25
+    Mathematical Pipeline Design        :done, 2026-06-26, 2026-07-09
+    
+    section Implementation & Tests
+    Preprocessing & Leakage Prevention  :done, 2026-07-10, 2026-07-23
+    LSTM Model & Training Loop Dev      :done, 2026-07-24, 2026-08-06
+    Automated Unit Test Suite (35 Tests):done, 2026-08-07, 2026-08-16
+    
+    section Experiments & Report
+    Controlled Empirical Experiments    :done, 2026-08-17, 2026-08-25
+    Streamlit Dashboard Deployment      :done, 2026-08-26, 2026-08-30
+    Final Report Documentation & Viva   :active, 2026-08-31, 2026-09-10
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Times New Roman', serif; padding: 20px; }
+        .mermaid { margin: 20px 0; }
+    </style>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+</head>
+<body>
+<h2>Figure 3.3: Class Diagram</h2>
+<div class="mermaid">
+classDiagram
+    direction TB
+    
+    class PreprocessedData {
+        +DataFrame train_df
+        +DataFrame val_df
+        +DataFrame test_df
+        +ndarray X_train
+        +ndarray X_val
+        +ndarray X_test
+        +MinMaxScaler scaler
+        +int window_size
+        +ndarray train_labels
+        +ndarray val_labels
+        +ndarray test_labels
+    }
+
+    class LSTMEncoder {
+        -int input_dim
+        -List~int~ hidden_dims
+        -int latent_dim
+        -ModuleList lstm_layers
+        -Linear fc_latent
+        +forward(Tensor x) Tensor
+    }
+
+    class LSTMDecoder {
+        -int latent_dim
+        -List~int~ hidden_dims
+        -int output_dim
+        -int seq_len
+        -ModuleList lstm_layers
+        -Linear fc_out
+        +forward(Tensor z, int seq_len) Tensor
+    }
+
+    class LSTMAutoencoder {
+        -LSTMEncoder encoder
+        -LSTMDecoder decoder
+        +forward(Tensor x) Tensor
+        +get_latent(Tensor x) Tensor
+        +compute_reconstruction_loss(Tensor x) Tensor
+        +compute_sequence_errors(Tensor x) Tensor
+    }
+
+    class DenseAutoencoder {
+        -Sequential encoder
+        -Sequential decoder
+        +forward(Tensor x) Tensor
+        +compute_sequence_errors(Tensor x) Tensor
+    }
+
+    class EarlyStopping {
+        -int patience
+        -float min_delta
+        -int counter
+        -float best_loss
+        -dict best_state
+        +__call__(float val_loss, Module model) bool
+    }
+
+    class StatisticalBaselineDetector {
+        -int window_size
+        -float k_std
+        -float mean_val
+        -float std_val
+        +fit(ndarray train_values)
+        +predict(ndarray values) Tuple
+        +predict_sequences(ndarray values, int window_size) Tuple
+    }
+
+    %% All associations fully defined
+    LSTMAutoencoder *-- LSTMEncoder : contains
+    LSTMAutoencoder *-- LSTMDecoder : contains
+    LSTMAutoencoder ..> PreprocessedData : trains and evaluates on
+    DenseAutoencoder ..> PreprocessedData : trains and evaluates on
+    StatisticalBaselineDetector ..> PreprocessedData : fits and predicts on
+    EarlyStopping ..> LSTMAutoencoder : monitors validation loss
+</div>
+
+<h2>Figure 3.4: Object Diagram</h2>
+<div class="mermaid">
+graph TD
+    classDef objectBox fill:#f8fafc,stroke:#334155,stroke-width:1.5px,text-align:left,font-family:monospace,font-size:11px;
+    
+    earlyStopObj["<b><u>earlyStopObj : EarlyStopping</u></b><br/>----------------------------------<br/>patience : 10<br/>min_delta : 0.0001<br/>counter : 10<br/>best_loss : 0.002037"]:::objectBox
+    
+    modelObj["<b><u>modelObj : LSTMAutoencoder</u></b><br/>----------------------------------<br/>weights : best_lstm_autoencoder.pt<br/>latent_dim : 16<br/>threshold : 0.005363"]:::objectBox
+    
+    baselineObj["<b><u>baselineObj : StatisticalBaselineDetector</u></b><br/>----------------------------------<br/>window_size : 24<br/>k_std : 3.0<br/>mean_val : 15137.5<br/>std_val : 5621.8"]:::objectBox
+    
+    encoderObj["<b><u>encoderObj : LSTMEncoder</u></b><br/>----------------------------------<br/>input_dim : 1<br/>hidden_dims : [64, 32]<br/>latent_dim : 16<br/>dropout : 0.1"]:::objectBox
+    
+    decoderObj["<b><u>decoderObj : LSTMDecoder</u></b><br/>----------------------------------<br/>latent_dim : 16<br/>hidden_dims : [32, 64]<br/>output_dim : 1<br/>seq_len : 24"]:::objectBox
+    
+    dataObj["<b><u>dataObj : PreprocessedData</u></b><br/>----------------------------------<br/>window_size : 24<br/>X_train : Tensor(5939, 24, 1)<br/>X_val : Tensor(2041, 24, 1)<br/>X_test : Tensor(2041, 24, 1)<br/>scaler : MinMaxScaler"]:::objectBox
+
+    earlyStopObj -.->|monitors loss| modelObj
+    modelObj -->|encapsulates| encoderObj
+    modelObj -->|encapsulates| decoderObj
+    modelObj -.->|evaluates sequences| dataObj
+    baselineObj -.->|evaluates sequences| dataObj
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+Page 1:
+b"1 0 obj\n<</Title (Time-Series Anomaly Detection Using LSTM Autoencoder Neural Network - BSc CSIT Project Report)\n/Creator (Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36 \\(KHTML, like Gecko\\) HeadlessChrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0)\n/Producer (Skia/PDF m152)\n/CreationDate (D:20260905133226+00'00')\n/ModDate (D:20260905133226+00'00')>>\nendobj\n3 0 obj\n<</ca 1\n/BM /Normal>>\nendobj\n7 0 obj\n<</Filter /FlateDecode\n/Length 2366>> stream\nx\x9c\xd5[\xdbn\xe4\xb8\x11}\xef\xaf\xd0s\x80p\xea\xc2\xe2\x05\x18\x0c\xe0n\xdb\x83<l\x80\xd9\x18\xd8\x0f\x98d\x17\x080"
+
+Page 2:
+b'8 0 obj\n<</Type /Page\n/Resources <</ProcSet [/PDF /Text /ImageB /ImageC /ImageI]\n/ExtGState <</G3 3 0 R>>\n/Font <</F4 4 0 R\n/F5 5 0 R\n/F9 9 0 R>>>>\n/MediaBox [0 0 594.95996 841.91998]\n/Contents 10 0 R\n/StructParents 1\n/Tabs /S\n/Parent 319 0 R>>\nendobj'
+

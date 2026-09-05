@@ -1,0 +1,4 @@
+architecture,hidden_dims,latent_dim,param_count,val_loss,precision,recall,f1_score,accuracy,runtime_sec
+LSTM(32)-LSTM(16),"[32, 16]",8,15913,0.003541,0.7729,0.2812,0.4123,0.7291,28.17
+LSTM(64)-LSTM(32),"[64, 32]",16,61777,0.002037,0.604,0.0884,0.1542,0.6722,46.96
+LSTM(128)-LSTM(64),"[128, 64]",32,243361,0.001802,0.6074,0.1188,0.1988,0.6761,109.01

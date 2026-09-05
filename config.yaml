@@ -1,0 +1,56 @@
+# Time-Series Anomaly Detection Using LSTM Autoencoder
+# Configuration File
+
+project:
+  name: "Time-Series Anomaly Detection Using LSTM Autoencoder"
+  version: "1.0.0"
+  random_seed: 42
+
+data:
+  raw_path: "data/raw/nyc_taxi.csv"
+  processed_path: "data/processed/nyc_taxi_processed.csv"
+  labels_path: "data/raw/nyc_taxi_labels.json"
+  timestamp_col: "timestamp"
+  value_col: "value"
+  # Chronological split ratios (earlier -> train, middle -> val, later -> test)
+  train_ratio: 0.60
+  val_ratio: 0.20
+  test_ratio: 0.20
+  window_size: 24
+  step_size: 1
+
+model:
+  input_dim: 1
+  hidden_dims: [64, 32]
+  latent_dim: 16
+  dropout: 0.1
+
+training:
+  epochs: 50
+  batch_size: 64
+  learning_rate: 0.001
+  optimizer: "adam"
+  weight_decay: 0.00001
+  loss_fn: "mse"
+  early_stopping_patience: 10
+  early_stopping_min_delta: 0.0001
+  checkpoint_dir: "models_saved"
+  best_model_name: "best_lstm_autoencoder.pt"
+
+anomaly_detection:
+  threshold_method: "percentile"  # percentile, std, iqr
+  percentile: 95.0
+  k_std: 3.0
+
+experiments:
+  window_sizes: [12, 24, 48, 72]
+  hidden_dims_list:
+    - [32, 16]
+    - [64, 32]
+    - [128, 64]
+  threshold_percentiles: [90.0, 95.0, 97.5, 99.0]
+  output_dir: "results"
+
+paths:
+  results_dir: "results"
+  plots_dir: "results/plots"

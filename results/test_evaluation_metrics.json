@@ -1,0 +1,24 @@
+{
+  "accuracy": 0.6785889269965704,
+  "precision": 0.6328125,
+  "recall": 0.11739130434782609,
+  "f1": 0.1980440097799511,
+  "specificity": 0.9652109548482606,
+  "tp": 81,
+  "fp": 47,
+  "tn": 1304,
+  "fn": 609,
+  "confusion_matrix": [
+    [
+      1304,
+      47
+    ],
+    [
+      609,
+      81
+    ]
+  ],
+  "total_samples": 2041,
+  "actual_anomalies": 690,
+  "predicted_anomalies": 128
+}

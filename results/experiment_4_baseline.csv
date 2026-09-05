@@ -1,0 +1,4 @@
+model,type,learns_temporal_dynamics,precision,recall,f1_score,accuracy
+Statistical (Rolling Z-Score),Heuristic Statistical Filter,No (Fixed Window Moments),0.3859,0.1348,0.1998,0.635
+Dense Autoencoder,Feedforward Neural Network,No (Static Vector Flattening),0.5752,0.1275,0.2088,0.6732
+LSTM Autoencoder (Ours),Recurrent Neural Network (LSTM),Yes (Gated Temporal State),0.7778,0.213,0.3345,0.7134
