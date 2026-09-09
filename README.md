@@ -260,6 +260,9 @@ nrproj/
 ├── app/
 │   └── app.py                      # Interactive Streamlit dashboard
 │
+├── api/
+│   └── server.py                   # FastAPI REST inference service (uvicorn)
+│
 ├── notebooks/
 │   ├── exploration.ipynb           # Step-by-step Jupyter demonstration
 │   └── generate_notebook.py        # Notebook generation script
@@ -376,6 +379,33 @@ In accordance with scientific integrity:
 2. **Attention Mechanisms:** Incorporating Bahdanau or Transformer self-attention to prioritize salient time steps within the window.
 3. **Multivariate Integration:** Extending `input_dim > 1` to fuse weather telemetry, calendar features (hour-of-day, day-of-week embeddings), and economic indicators.
 4. **Adaptive Online Thresholding:** Dynamically adjusting the anomaly threshold based on rolling validation error quantiles.
+
+---
+
+## 14. REST API Inference Service
+
+The trained model is also exposed as a FastAPI REST service (`api/server.py`) for programmatic/third-party integration — a third interface alongside the CLI and the Streamlit dashboard.
+
+```bash
+pip install -r requirements.txt               # includes fastapi, uvicorn
+uvicorn api.server:app --host 0.0.0.0 --port 8000
+```
+
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/` | GET | Service metadata |
+| `/health` | GET | Model / device / checkpoint status |
+| `/api/v1/predict` | POST | Score a univariate series for anomalies |
+
+**Example:**
+
+```bash
+curl -X POST http://localhost:8000/api/v1/predict \
+  -H "Content-Type: application/json" \
+  -d '{"values": [100, 101, 99, 102, 100, 101, 103], "window_size": 24}'
+```
+
+The request accepts `values` (required), optional `window_size`, `threshold` (explicit override), `method` (`percentile`/`std`/`iqr`), `percentile`, `k_std`, and optional `timestamps` echoed to the response. The response returns per-window reconstruction `scores`, binary `predictions`, the decision `threshold`, and the `anomaly_count`. Input is MinMax-normalized online on the submitted series (approximating the training-split scaler for demo purposes).
 
 ---
 *Developed for BSc CSIT 6th-Semester Neural Networks Course.*

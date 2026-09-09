@@ -298,6 +298,8 @@ def train_model(
                         "val_loss": val_loss,
                         "train_loss": train_loss,
                         "window_size": model.seq_len if hasattr(model, "seq_len") else None,
+                        "hidden_dims": model.hidden_dims if hasattr(model, "hidden_dims") else None,
+                        "latent_dim": model.latent_dim if hasattr(model, "latent_dim") else None,
                     },
                 )
 
