@@ -8,3 +8,15 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# CONFIDENTIAL — academic report deliverables & build scratch. Never commit.
+report/
+
+# Root scratch dumps
+dom_output.html
+extracted_all_pages.txt
+page_obj_dump.txt
+pdf_pages_extracted.txt
+test_*.html
+test_*.png
+verify_final_gantt.png

@@ -18,6 +18,8 @@ plt.style.use("seaborn-v0_8-whitegrid" if "seaborn-v0_8-whitegrid" in plt.style.
 plt.rcParams["font.sans-serif"] = "DejaVu Sans"
 plt.rcParams["axes.edgecolor"] = "#cccccc"
 plt.rcParams["axes.linewidth"] = 0.8
+plt.rcParams["figure.dpi"] = 300
+plt.rcParams["savefig.dpi"] = 300
 
 
 def plot_raw_time_series_matplotlib(
@@ -27,9 +29,10 @@ def plot_raw_time_series_matplotlib(
     title: str = "Raw Time Series Data",
     anomaly_mask: Optional[pd.Series] = None,
     save_path: Optional[Union[str, Path]] = None,
+    dpi: int = 300,
 ) -> plt.Figure:
     """Plot raw time-series with optional anomaly highlighting using Matplotlib."""
-    fig, ax = plt.subplots(figsize=(14, 5), dpi=150)
+    fig, ax = plt.subplots(figsize=(14, 5), dpi=dpi)
     ax.plot(df[timestamp_col], df[value_col], color="#1f77b4", linewidth=1.2, label="Signal Value")
 
     if anomaly_mask is not None and anomaly_mask.any():
@@ -51,7 +54,7 @@ def plot_raw_time_series_matplotlib(
 
     if save_path:
         Path(save_path).parent.mkdir(parents=True, exist_ok=True)
-        fig.savefig(save_path, bbox_inches="tight")
+        fig.savefig(save_path, bbox_inches="tight", dpi=dpi)
 
     return fig
 
@@ -60,9 +63,10 @@ def plot_loss_curves_matplotlib(
     history: Dict[str, Any],
     title: str = "LSTM Autoencoder Training & Validation Loss",
     save_path: Optional[Union[str, Path]] = None,
+    dpi: int = 300,
 ) -> plt.Figure:
     """Plot training and validation loss curves over epochs using Matplotlib."""
-    fig, ax = plt.subplots(figsize=(10, 5), dpi=150)
+    fig, ax = plt.subplots(figsize=(10, 5), dpi=dpi)
     train_loss = history.get("train_loss", [])
     val_loss = history.get("val_loss", [])
     epochs = range(1, len(train_loss) + 1)
@@ -85,7 +89,7 @@ def plot_loss_curves_matplotlib(
 
     if save_path:
         Path(save_path).parent.mkdir(parents=True, exist_ok=True)
-        fig.savefig(save_path, bbox_inches="tight")
+        fig.savefig(save_path, bbox_inches="tight", dpi=dpi)
 
     return fig
 
@@ -97,9 +101,10 @@ def plot_reconstruction_matplotlib(
     num_points: int = 400,
     title: str = "Original vs Reconstructed Signal",
     save_path: Optional[Union[str, Path]] = None,
+    dpi: int = 300,
 ) -> plt.Figure:
     """Plot original signal overlaid with autoencoder reconstruction."""
-    fig, ax = plt.subplots(figsize=(14, 5), dpi=150)
+    fig, ax = plt.subplots(figsize=(14, 5), dpi=dpi)
     n = min(len(timestamps), num_points)
 
     ax.plot(timestamps[-n:], actual[-n:], color="#1f77b4", linewidth=1.5, label="Original Signal")
@@ -120,7 +125,7 @@ def plot_reconstruction_matplotlib(
 
     if save_path:
         Path(save_path).parent.mkdir(parents=True, exist_ok=True)
-        fig.savefig(save_path, bbox_inches="tight")
+        fig.savefig(save_path, bbox_inches="tight", dpi=dpi)
 
     return fig
 
@@ -131,9 +136,10 @@ def plot_reconstruction_error_matplotlib(
     threshold: float,
     title: str = "Reconstruction Error and Anomaly Threshold",
     save_path: Optional[Union[str, Path]] = None,
+    dpi: int = 300,
 ) -> plt.Figure:
     """Plot reconstruction error alongside the anomaly decision threshold."""
-    fig, ax = plt.subplots(figsize=(14, 5), dpi=150)
+    fig, ax = plt.subplots(figsize=(14, 5), dpi=dpi)
     ax.plot(timestamps, errors, color="#7f7f7f", linewidth=1.0, alpha=0.8, label="Reconstruction Error (MSE)")
     ax.axhline(threshold, color="#d62728", linestyle="--", linewidth=2.0, label=f"Anomaly Threshold ({threshold:.5f})")
 
@@ -150,7 +156,7 @@ def plot_reconstruction_error_matplotlib(
 
     if save_path:
         Path(save_path).parent.mkdir(parents=True, exist_ok=True)
-        fig.savefig(save_path, bbox_inches="tight")
+        fig.savefig(save_path, bbox_inches="tight", dpi=dpi)
 
     return fig
 
@@ -162,9 +168,10 @@ def plot_detected_anomalies_matplotlib(
     ground_truth: Optional[np.ndarray] = None,
     title: str = "Time Series with Detected Anomalies Highlighted",
     save_path: Optional[Union[str, Path]] = None,
+    dpi: int = 300,
 ) -> plt.Figure:
     """Highlight detected anomaly regions against actual observations."""
-    fig, ax = plt.subplots(figsize=(14, 5), dpi=150)
+    fig, ax = plt.subplots(figsize=(14, 5), dpi=dpi)
     ax.plot(timestamps, values, color="#1f77b4", linewidth=1.0, alpha=0.85, label="Actual Value")
 
     detected_idx = np.where(predictions == 1)[0]
@@ -200,7 +207,7 @@ def plot_detected_anomalies_matplotlib(
 
     if save_path:
         Path(save_path).parent.mkdir(parents=True, exist_ok=True)
-        fig.savefig(save_path, bbox_inches="tight")
+        fig.savefig(save_path, bbox_inches="tight", dpi=dpi)
 
     return fig
 
@@ -209,9 +216,10 @@ def plot_confusion_matrix_matplotlib(
     cm: List[List[int]],
     title: str = "Confusion Matrix",
     save_path: Optional[Union[str, Path]] = None,
+    dpi: int = 300,
 ) -> plt.Figure:
     """Plot annotated confusion matrix heatmap."""
-    fig, ax = plt.subplots(figsize=(6, 5), dpi=150)
+    fig, ax = plt.subplots(figsize=(6, 5), dpi=dpi)
     cm_arr = np.array(cm)
 
     im = ax.imshow(cm_arr, interpolation="nearest", cmap="Blues")
@@ -244,7 +252,7 @@ def plot_confusion_matrix_matplotlib(
 
     if save_path:
         Path(save_path).parent.mkdir(parents=True, exist_ok=True)
-        fig.savefig(save_path, bbox_inches="tight")
+        fig.savefig(save_path, bbox_inches="tight", dpi=dpi)
 
     return fig
 

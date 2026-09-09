@@ -1,0 +1,70 @@
+<svg width="1290" height="1560" viewBox="0 0 1290 1560" xmlns="http://www.w3.org/2000/svg" style="background: #ffffff; font-family: 'Times New Roman', Times, serif;">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse">
+      <path d="M 0.5 1 L 9 5 L 0.5 9 Z" fill="#1e293b"/>
+    </marker>
+  </defs>
+<text x="645" y="26" font-size="15" font-weight="bold" text-anchor="middle" fill="#0f172a">UML 2.5 Activity Diagram: End-to-End Anomaly Detection Pipeline</text>
+<rect x="40" y="56" width="356" height="1464" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+<rect x="40" y="56" width="356" height="34" fill="#e2e8f0" stroke="#475569" stroke-width="1.2"/>
+<rect x="404" y="56" width="480" height="1464" fill="#f8fafc" stroke="#475569" stroke-width="1.2"/>
+<rect x="404" y="56" width="480" height="34" fill="#e2e8f0" stroke="#475569" stroke-width="1.2"/>
+<rect x="892" y="56" width="356" height="1464" fill="#ffffff" stroke="#475569" stroke-width="1.2"/>
+<rect x="892" y="56" width="356" height="34" fill="#e2e8f0" stroke="#475569" stroke-width="1.2"/>
+<text x="218.0" y="79" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Data Ingestion &amp; Preprocessing</text>
+<text x="644.0" y="79" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Model Training &amp; Validation</text>
+<text x="1070.0" y="79" font-size="12" font-weight="bold" fill="#1e293b" text-anchor="middle">Thresholding &amp; Diagnostics</text>
+<circle cx="218.0" cy="116" r="9" fill="#1e293b"/>
+<path d="M 218.0,125 L 218.0,150" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="108.0" y="150" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="218.0" y="177.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Load Raw CSV Telemetry</text>
+<path d="M 218.0,196 L 218.0,222" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="108.0" y="222" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="218.0" y="249.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Validate Schema Integrity</text>
+<path d="M 218.0,290 L 234.0,306 L 218.0,322 L 202.0,306 Z" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+<path d="M 218.0,322 L 218.0,336" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="230.0" y="330" font-size="9.5" font-style="italic" fill="#475569" text-anchor="start">[valid]</text>
+<rect x="108.0" y="336" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="218.0" y="363.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Clean &amp; Sort Timestamps</text>
+<path d="M 218.0,382 L 218.0,408" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="108.0" y="408" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="218.0" y="435.0" font-size="9.3" font-weight="bold" fill="#1e293b" text-anchor="middle">Split Chronologically 60/20/20</text>
+<path d="M 218.0,454 L 218.0,480" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="108.0" y="480" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="218.0" y="507.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Fit MinMax Scaler on Train</text>
+<path d="M 218.0,526 L 218.0,552" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="108.0" y="552" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="218.0" y="579.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Generate Sliding Windows</text>
+<path d="M 202.0,306 L 70,306 L 70,617" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="136" y="326" font-size="9.5" font-style="italic" fill="#475569" text-anchor="middle">[invalid]</text>
+<rect x="45" y="617" width="120" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="105.0" y="644.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Reject File</text>
+<path d="M 105,663 L 105,689" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<circle cx="105" cy="700" r="11" fill="none" stroke="#1e293b" stroke-width="1.6"/><circle cx="105" cy="700" r="6.5" fill="#1e293b"/>
+<path d="M 218.0,598 L 218.0,626 L 644.0,626 L 644.0,660" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="534.0" y="660" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="644.0" y="687.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Initialize LSTM Autoencoder</text>
+<path d="M 644.0,706 L 644.0,732" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="534.0" y="732" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="644.0" y="759.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Train Epoch (Fwd, MSE, BPTT)</text>
+<path d="M 644.0,778 L 644.0,804" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="534.0" y="804" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="644.0" y="831.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Compute Validation Loss</text>
+<path d="M 644.0,872 L 660.0,888 L 644.0,904 L 628.0,888 Z" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+<path d="M 628.0,888 L 564,888 L 564,918" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="596" y="908" font-size="9.5" font-style="italic" fill="#475569" text-anchor="middle">[improved]</text>
+<rect x="489" y="918" width="150" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="564.0" y="945.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Save Best Checkpoint</text>
+<path d="M 660.0,888 L 724,888 L 724,918" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="692" y="908" font-size="9.5" font-style="italic" fill="#475569" text-anchor="middle">[not improved]</text>
+<rect x="649" y="918" width="150" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="724.0" y="945.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Increment Patience</text>
+<path d="M 644.0,976 L 658.0,990 L 644.0,1004 L 630.0,990 Z" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+<path d="M 564,964 L 564,990 L 630.0,990" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M 724,964 L 724,990 L 658.0,990" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M 644.0,1004 L 644.0,1026" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<path d="M 644.0,1026 L 660.0,1042 L 644.0,1058 L 628.0,1042 Z" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+<path d="M 644.0,1058 L 644.0,1084" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="656.0" y="1070" font-size="9.5" font-style="italic" fill="#475569" text-anchor="start">[patience &#8805; 10]</text>
+<rect x="534.0" y="1084" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="644.0" y="1111.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Restore Best Weights</text>
+<path d="M 628.0,1042 L 460,1042 L 460,755 L 534.0,755" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="540" y="1062" font-size="9.5" font-style="italic" fill="#475569" text-anchor="middle">[patience &lt; 10]</text>
+<path d="M 644.0,1130 L 644.0,1150 L 1070.0,1150 L 1070.0,1174" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="960.0" y="1174" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="1070.0" y="1201.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Calibrate Threshold (p95)</text>
+<path d="M 1070.0,1220 L 1070.0,1246" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="960.0" y="1246" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="1070.0" y="1273.0" font-size="10.5" font-weight="bold" fill="#1e293b" text-anchor="middle">Score Test Sequences (MSE)</text>
+<path d="M 1070.0,1292 L 1070.0,1318" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="960.0" y="1318" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="1070.0" y="1345.0" font-size="9.3" font-weight="bold" fill="#1e293b" text-anchor="middle">Apply Decision Rule (e &gt; &#964;)</text>
+<path d="M 1070.0,1364 L 1070.0,1390" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="960.0" y="1390" width="220" height="46" rx="14" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/><text x="1070.0" y="1417.0" font-size="9.3" font-weight="bold" fill="#1e293b" text-anchor="middle">Export Flagged Anomalies (CSV)</text>
+<path d="M 1070.0,1436 L 1070.0,1462" fill="none" stroke="#1e293b" stroke-width="1.5" marker-end="url(#arrow)"/>
+<circle cx="1070.0" cy="1474" r="11" fill="none" stroke="#1e293b" stroke-width="1.6"/><circle cx="1070.0" cy="1474" r="6.5" fill="#1e293b"/>
+</svg>

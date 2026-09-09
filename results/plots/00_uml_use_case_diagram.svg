@@ -1,0 +1,106 @@
+<svg width="960" height="580" viewBox="0 0 960 580" xmlns="http://www.w3.org/2000/svg" style="background: #ffffff; font-family: 'Times New Roman', Times, serif;">
+  <defs>
+    <!-- UML Open Arrow Marker for «include» and «extend» -->
+    <marker id="umlArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8 5 L 1 8.5" fill="none" stroke="#1a1a1c" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- System Boundary Frame -->
+  <rect x="250" y="25" width="680" height="525" rx="4" fill="#ffffff" stroke="#1a1a1c" stroke-width="1.8"/>
+  <!-- System Name Header -->
+  <text x="590" y="58" font-size="16" font-weight="bold" text-anchor="middle" fill="#1a1a1c" letter-spacing="0.3">LSTM Anomaly Detection System</text>
+
+  <!-- ================= ACTOR: STICK FIGURE (Matching Reference Image Exactly) ================= -->
+  <g id="domain-analyst-actor">
+    <!-- Head: circle with exact #d5e7cc sage fill and dark stroke -->
+    <circle cx="120" cy="240" r="26" fill="#d5e7cc" stroke="#1a1a1c" stroke-width="2"/>
+    <!-- Spine / Torso -->
+    <line x1="120" y1="266" x2="120" y2="336" stroke="#1a1a1c" stroke-width="2" stroke-linecap="round"/>
+    <!-- Arms -->
+    <line x1="78" y1="286" x2="162" y2="286" stroke="#1a1a1c" stroke-width="2" stroke-linecap="round"/>
+    <!-- Left Leg -->
+    <line x1="120" y1="336" x2="84" y2="398" stroke="#1a1a1c" stroke-width="2" stroke-linecap="round"/>
+    <!-- Right Leg -->
+    <line x1="120" y1="336" x2="156" y2="398" stroke="#1a1a1c" stroke-width="2" stroke-linecap="round"/>
+    <!-- Actor Label (Text beneath legs) -->
+    <text x="120" y="426" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a1a1c">Domain Analyst /</text>
+    <text x="120" y="444" font-size="14" font-weight="bold" text-anchor="middle" fill="#1a1a1c">Researcher</text>
+  </g>
+
+  <!-- ================= ASSOCIATION LINES (Actor -> Primary Use Cases) ================= -->
+  <!-- UC1 Line -->
+  <line x1="145" y1="270" x2="315" y2="115" stroke="#1a1a1c" stroke-width="1.3"/>
+  <!-- UC2 Line -->
+  <line x1="155" y1="282" x2="315" y2="200" stroke="#1a1a1c" stroke-width="1.3"/>
+  <!-- UC3 Line -->
+  <line x1="162" y1="290" x2="315" y2="285" stroke="#1a1a1c" stroke-width="1.3"/>
+  <!-- UC4 Line -->
+  <line x1="155" y1="300" x2="315" y2="370" stroke="#1a1a1c" stroke-width="1.3"/>
+  <!-- UC5 Line -->
+  <line x1="145" y1="315" x2="315" y2="455" stroke="#1a1a1c" stroke-width="1.3"/>
+
+  <!-- ================= PRIMARY USE CASES (Left Column, x=430) ================= -->
+  <!-- UC1: Ingest Data -->
+  <g id="uc-ingest">
+    <ellipse cx="430" cy="115" rx="115" ry="26" fill="#d5e7cc" stroke="#1a1a1c" stroke-width="1.5"/>
+    <text x="430" y="120" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1c">Ingest Time-Series CSV</text>
+  </g>
+
+  <!-- UC2: Configure Hyperparameters -->
+  <g id="uc-config">
+    <ellipse cx="430" cy="200" rx="115" ry="26" fill="#d5e7cc" stroke="#1a1a1c" stroke-width="1.5"/>
+    <text x="430" y="205" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1c">Configure Hyperparameters</text>
+  </g>
+
+  <!-- UC3: Train Autoencoder -->
+  <g id="uc-train">
+    <ellipse cx="430" cy="285" rx="115" ry="26" fill="#d5e7cc" stroke="#1a1a1c" stroke-width="1.5"/>
+    <text x="430" y="290" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1c">Train LSTM Autoencoder</text>
+  </g>
+
+  <!-- UC4: Detect Anomalies -->
+  <g id="uc-detect">
+    <ellipse cx="430" cy="370" rx="115" ry="26" fill="#d5e7cc" stroke="#1a1a1c" stroke-width="1.5"/>
+    <text x="430" y="375" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1c">Detect Anomalies &amp; Evaluate</text>
+  </g>
+
+  <!-- UC5: Inspect Visualizations -->
+  <g id="uc-inspect">
+    <ellipse cx="430" cy="455" rx="115" ry="26" fill="#d5e7cc" stroke="#1a1a1c" stroke-width="1.5"/>
+    <text x="430" y="460" font-size="13" font-weight="bold" text-anchor="middle" fill="#1a1a1c">Inspect Diagnostic Dashboard</text>
+  </g>
+
+  <!-- ================= SECONDARY / EXTENDED / INCLUDED USE CASES (Right Column, x=760) ================= -->
+  <!-- UC6: Preprocess & Slice Windows (Included by UC3) -->
+  <g id="uc-preprocess">
+    <ellipse cx="760" cy="285" rx="120" ry="26" fill="#d5e7cc" stroke="#1a1a1c" stroke-width="1.5"/>
+    <text x="760" y="290" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1a1a1c">Preprocess &amp; Slice Windows</text>
+  </g>
+
+  <!-- UC7: Calibrate Decision Threshold (Included by UC4) -->
+  <g id="uc-calibrate">
+    <ellipse cx="760" cy="370" rx="120" ry="26" fill="#d5e7cc" stroke="#1a1a1c" stroke-width="1.5"/>
+    <text x="760" y="375" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1a1a1c">Calibrate Decision Threshold</text>
+  </g>
+
+  <!-- UC8: Export Detected Anomalies (Extends UC5) -->
+  <g id="uc-export">
+    <ellipse cx="760" cy="455" rx="120" ry="26" fill="#d5e7cc" stroke="#1a1a1c" stroke-width="1.5"/>
+    <text x="760" y="460" font-size="12.5" font-weight="bold" text-anchor="middle" fill="#1a1a1c">Export Detected Anomalies</text>
+  </g>
+
+  <!-- ================= RELATIONSHIPS: «include» and «extend» ================= -->
+  <!-- Train -> Preprocess: «include» -->
+  <line x1="545" y1="285" x2="633" y2="285" stroke="#1a1a1c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#umlArrow)"/>
+  <text x="589" y="277" font-size="11" font-style="italic" font-weight="bold" text-anchor="middle" fill="#1a1a1c">&laquo;include&raquo;</text>
+
+  <!-- Detect -> Calibrate: «include» -->
+  <line x1="545" y1="370" x2="633" y2="370" stroke="#1a1a1c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#umlArrow)"/>
+  <text x="589" y="362" font-size="11" font-style="italic" font-weight="bold" text-anchor="middle" fill="#1a1a1c">&laquo;include&raquo;</text>
+
+  <!-- Export -> Inspect: «extend» -->
+  <line x1="640" y1="455" x2="552" y2="455" stroke="#1a1a1c" stroke-width="1.4" stroke-dasharray="5,4" marker-end="url(#umlArrow)"/>
+  <text x="596" y="447" font-size="11" font-style="italic" font-weight="bold" text-anchor="middle" fill="#1a1a1c">&laquo;extend&raquo;</text>
+
+</svg>
